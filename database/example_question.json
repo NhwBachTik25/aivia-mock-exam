@@ -1,0 +1,17 @@
+{
+  "kind": "S",
+  "topic": "ML/DL",
+  "level": "Nền tảng",
+  "question": "Thuật toán nào sau đây là học không giám sát?",
+  "options": [
+    "Hồi quy logistic",
+    "K-means",
+    "Cây quyết định có nhãn",
+    "SVM phân loại"
+  ],
+  "answer": ["B"],
+  "explanation": "K-means phân cụm dữ liệu không cần nhãn.",
+  "source": "VOAI",
+  "skill": "nhận diện bài toán",
+  "code": null
+}
