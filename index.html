@@ -1,39 +1,154 @@
-<!doctype html>
-<html lang="vi"><head>
-<script src="https://accounts.google.com/gsi/client" async defer></script>
-
-<meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<meta name="theme-color" content="#0f2141">
-<meta name="description" content="AIVIA Mock 08: 100 câu trắc nghiệm tổng hợp mô phỏng vòng sơ loại AI - Foundation đến Olympic, code chỉ 15 câu.">
+<!DOCTYPE html><html lang="vi"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>AIVIA Mock 08 - VOAI Realistic 100 Câu (Live Ranking kiểu Azota)</title>
+<meta name="description" content="Đề thi thử AI tổng hợp 100 câu tự biên soạn, bảng xếp hạng trực tiếp Live Ranking kiểu Azota, kiểm soát toàn màn hình chống gian lận.">
 <meta name="author" content="AIVIA"><meta name="copyright" content="© AIVIA 2026. Tài liệu tự biên soạn.">
-<title>AIVIA Mock 08 | General AI Selection Simulation</title>
 <style>
-:root{--bg:#f3f6fb;--white:#fff;--ink:#10223d;--text:#2d415c;--muted:#6d7e94;--line:#dbe4ef;--blue:#1a5ddc;--mint:#11ac9d;--mintLight:#e8f7f5;--soft:#edf3fa;--orange:#bd7517;--radius:17px;--shadow:0 8px 34px rgba(19,37,64,.08)}
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg);color:var(--ink);font-family:'Segoe UI',Inter,Arial,sans-serif;font-size:15px;line-height:1.55}button,input,select{font:inherit}button{cursor:pointer}button:disabled{opacity:.43;cursor:not-allowed}a{color:#195cb6;text-underline-offset:3px}code,pre{font-family:'Cascadia Code',Consolas,'SFMono-Regular',monospace}button:focus-visible,select:focus-visible,a:focus-visible{outline:3px solid #81b4ff;outline-offset:3px}
-.mast{height:74px;background:#0d1e37;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 max(24px,calc((100vw - 1470px)/2));border-bottom:1px solid rgba(255,255,255,.08);position:sticky;top:0;z-index:9}
-.brand{display:flex;align-items:center;gap:13px}.brandmark{width:37px;height:37px;border:2px solid #80f0d7;display:grid;place-items:center;border-radius:11px;font-weight:900;color:#80f0d7;font-size:21px;letter-spacing:-2px}.brand strong{font-size:17px;letter-spacing:2px}.brand small{display:block;font-size:11px;font-weight:500;letter-spacing:1.2px;color:#98acc7}.mast-right{display:flex;align-items:center;gap:14px}.count-clock{display:flex;align-items:center;gap:12px}.clock{font-family:Consolas,monospace;font-size:20px;font-weight:800;letter-spacing:.7px;font-variant-numeric:tabular-nums}.clock.urgent{color:#ffc18d}.mini-status{color:#acc0d8;font-size:12px}.ghost-on-dark{border:1px solid #3f5069;background:transparent;color:#e7f0ff;border-radius:10px;padding:9px 12px;font-size:12px}
-.intro-wrap{max-width:1200px;margin:55px auto;padding:0 20px}.hero{background:linear-gradient(130deg,#101d3a 0%,#132d56 66%,#124e5e 100%);color:white;overflow:hidden;border-radius:25px;padding:55px;box-shadow:0 18px 60px rgba(16,30,65,.16);position:relative}.hero:before{content:'';width:400px;height:400px;border:1px solid rgba(163,255,235,.18);border-radius:50%;position:absolute;right:-100px;top:-100px;box-shadow:0 0 0 75px rgba(163,255,235,.03),0 0 0 150px rgba(163,255,235,.025);pointer-events:none}.eyebrow{color:#83ddcc;font-size:12px;letter-spacing:2.2px;font-weight:850;text-transform:uppercase}.hero h1{font-size:clamp(28px,4.4vw,52px);line-height:1.14;max-width:800px;margin:19px 0}.hero p{color:#c4d4ea;max-width:770px;font-size:16px}.hero strong{color:#fff}.chips{display:flex;gap:9px;flex-wrap:wrap;margin:24px 0}.chip{font-size:12px;font-weight:750;padding:7px 11px;border:1px solid rgba(201,232,255,.25);border-radius:999px;color:#e7f5ff;background:rgba(255,255,255,.055)}.btn{border-radius:11px;border:1px solid var(--line);padding:12px 18px;background:white;font-weight:750;color:var(--ink);transition:.15s}.btn:hover:not(:disabled){filter:brightness(.97);transform:translateY(-1px)}.btn.primary{background:var(--blue);border-color:var(--blue);color:white}.hero .btn.primary{background:#78edcf;color:#102c3d;border-color:#78edcf;padding:14px 26px}.btn.danger{color:#b34445;background:#fff3f3;border-color:#f3ccca}.btn.soft{background:#eaf2fd;border-color:#d6e7fc;color:#1b5299}.btn.small{padding:8px 12px;font-size:12px}.btn.block{width:100%}.hero-bottom{display:flex;align-items:center;gap:18px;flex-wrap:wrap;margin-top:28px}.hero-bottom small{color:#adc5df}.overview{display:grid;grid-template-columns:repeat(4,minmax(0,1fr));gap:13px;margin-top:20px}.tile{border:1px solid var(--line);border-radius:15px;padding:20px;background:white}.tile b{display:block;font-size:24px;font-weight:850}.tile span{display:block;color:var(--muted);font-size:12px}.section-card{margin-top:25px;background:white;border:1px solid var(--line);border-radius:17px;padding:24px}.section-card h2{font-size:19px;margin:0 0 12px}.list-info{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}.info-unit{padding:12px 14px;border-radius:11px;background:#f6f9fd}.info-unit b{display:block;font-size:13px}.info-unit p{font-size:12px;margin:4px 0 0;color:var(--muted)}.caution{border-left:3px solid #5a99e0;background:#f3f8ff;padding:12px 16px;font-size:13px;border-radius:0 8px 8px 0;color:#42617f;margin:18px 0 0}
-.layout{max-width:1470px;padding:24px 18px 50px;margin:auto;display:grid;grid-template-columns:306px minmax(0,1fr);gap:24px;align-items:start}.sidebar{background:white;border:1px solid var(--line);border-radius:18px;padding:19px;position:sticky;top:91px;max-height:calc(100vh - 112px);overflow:auto;box-shadow:var(--shadow)}.sidehead{display:flex;align-items:baseline;justify-content:space-between;gap:8px}.sidehead b{font-size:16px}.sidehead span{font-size:12px;color:var(--muted)}.progress-track{height:8px;border-radius:20px;background:#e7eef8;overflow:hidden;margin:14px 0 18px}.progress-fill{height:100%;background:linear-gradient(90deg,#1664c0,#10ad9c);border-radius:20px;transition:width .2s}.selectbox{display:block;font-size:12px;font-weight:750;color:#6a7c91;margin-top:16px}.selectbox select{width:100%;background:white;color:var(--text);border:1px solid #d5dfed;border-radius:9px;padding:10px;margin-top:6px}.tabrow{display:flex;gap:5px;margin:18px 0 12px;flex-wrap:wrap}.tab{border:1px solid #e0e9f3;border-radius:8px;font-size:11px;padding:7px 8px;background:#f7f9fd;color:#556a81}.tab.active{background:#164f9d;border-color:#164f9d;color:#fff}.palette{display:grid;grid-template-columns:repeat(6,minmax(0,1fr));gap:8px}.number{aspect-ratio:1.15;border:1px solid #d8e2ee;background:white;border-radius:8px;color:#5c718a;font-size:12px;font-weight:700;padding:0;position:relative}.number.current{border:2px solid #1555bd;box-shadow:0 0 0 3px #e5efff;color:#104a9c}.number.done{background:#dff6ef;border-color:#a9dfce;color:#18644e}.number.flag:after{content:'';position:absolute;width:6px;height:6px;right:2px;top:2px;background:#efa333;border-radius:50%}.number.good{background:#e4f6e9;border-color:#9fdfb5;color:#187447}.number.bad{background:#fff0ef;border-color:#efbcb9;color:#9f3e37}.number:hover{filter:brightness(.96)}.pal-toggle{display:none}.legend{display:flex;gap:14px;flex-wrap:wrap;margin-top:14px;font-size:10px;color:#6d8298}.legend i{display:inline-block;width:10px;height:10px;border:1px solid #d6e2ed;border-radius:3px;margin-right:4px;vertical-align:middle}.legend .good{background:#dff6ef;border-color:#a9dfce}.legend .mark{background:#f1ae4e}.sidehint{color:#8192a7;font-size:11px;margin:17px 0 0}.main-col{min-width:0}.crumb{display:flex;align-items:center;justify-content:space-between;gap:12px;color:#6a7d92;font-size:13px;margin:9px 0 18px}.crumb b{color:#1e385c}.summaryline{font-size:12px}.qcard{background:white;border:1px solid #dbe3ef;border-radius:18px;box-shadow:var(--shadow);overflow:hidden}.qhead{display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid #e9eff6;padding:20px 27px;gap:12px;background:linear-gradient(90deg,#fafdff,white)}.qtitle{font-weight:850;font-size:19px}.meta{display:flex;gap:7px;flex-wrap:wrap;justify-content:flex-end}.pill{font-size:11px;font-weight:750;background:#edf3f9;color:#49627d;border-radius:8px;padding:6px 9px}.pill.hard{color:#8b531c;background:#fff2de}.pill.olympic{color:#903d4a;background:#ffeaf0}.pill.code{color:#25548f;background:#e4eefc}.pill.multi{color:#8b4e34;background:#fff0df}.qbody{padding:30px 28px 24px}.question{font-size:20px;font-weight:680;line-height:1.72;margin:0 0 20px;color:#132843;white-space:pre-line;overflow-wrap:anywhere}.question .math{font-family:'Cambria Math','Times New Roman',serif}.qcode{background:#0c1b30;color:#e1efff;border:1px solid #24364f;border-radius:12px;padding:20px;white-space:pre-wrap;word-break:break-word;font-size:13px;line-height:1.65;overflow-x:auto;margin:0 0 23px}.options{display:grid;gap:10px}.option{display:flex;align-items:flex-start;gap:13px;text-align:left;width:100%;border:1px solid #e1e8f1;background:#fff;padding:15px 17px;border-radius:11px;color:#203c5d;line-height:1.6;transition:background .1s,border-color .1s}.option:hover:not(:disabled){background:#f7faff;border-color:#b9cff3}.option.selected{background:#eff6ff;border-color:#81afea}.bubble{border:1.5px solid #bbcce0;color:#6a80a0;width:25px;height:25px;flex-shrink:0;display:grid;place-items:center;font-size:11px;font-weight:800;border-radius:50%;margin-top:1px}.option.selected .bubble{background:#195fc8;border-color:#195fc8;color:#fff}.opt-text{flex:1;min-width:0;white-space:pre-wrap;overflow-wrap:anywhere}.optcode{font-size:12px;line-height:1.6;margin:0;padding:4px 0;background:transparent;color:#1c486d;white-space:pre-wrap;word-break:break-word}.option.iscorrect{border-color:#77cda4;background:#eafaf1}.option.iscorrect .bubble{background:#13824c;color:#fff;border-color:#13824c}.option.iswrong{border-color:#e8a8a0;background:#fff1f0}.option.iswrong .bubble{background:#c74342;color:#fff;border-color:#c74342}.option.missed{border-color:#9bdaae;border-style:dashed}.rule{color:#7890a6;font-size:12px;padding:12px 0 2px}.actions{display:flex;align-items:center;gap:10px;flex-wrap:wrap;padding:19px 27px;border-top:1px solid #e8eef5;background:#fafcff}.actions .end{margin-left:auto}.review-note{margin:14px 0 0;border:1px solid #cfe1f6;background:#f3f8ff;border-radius:13px;padding:20px 22px}.review-note h3{margin:0 0 8px;font-size:15px}.review-note p{margin:0 0 10px;color:#274664}.answerline{font-weight:850;color:#1e6d53}.sourceinfo{font-size:12px;color:#6b8197;border-top:1px solid #d7e5f4;padding-top:10px}.sourceinfo a{overflow-wrap:anywhere}.markinfo{display:inline-block;font-size:12px;color:#8b581b;border:1px solid #e6d5b9;border-radius:8px;padding:5px 8px;background:#fff8e8}
-.result-hero{border-radius:18px;padding:27px 29px;background:linear-gradient(115deg,#112e52,#164f64);color:white;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px}.result-hero h1{font-size:30px;margin:5px 0}.result-hero p{color:#c1d9e8;margin:0;font-size:13px}.scorebig{font-size:55px;font-weight:880;line-height:1;white-space:nowrap}.scorebig small{font-size:17px;color:#b0d6e2}.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px}.metric-card{border:1px solid var(--line);background:white;border-radius:14px;padding:17px}.metric-card .mname{font-size:12px;font-weight:750;color:#657c95}.metric-card .mline{display:flex;align-items:baseline;justify-content:space-between;font-size:21px;font-weight:800;margin:7px 0 12px}.metric-card .mline small{font-size:12px;color:#8d9dae;font-weight:600}.metric-card .bar{background:#edf3fa;height:7px;border-radius:20px;overflow:hidden}.metric-card .bar>div{height:100%;background:#14a894;border-radius:20px}.result-tools{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}.result-tools select{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}.result-summary{margin:12px 0 17px;font-size:13px;color:#607590}
-.toaster{position:fixed;bottom:24px;right:22px;background:#183759;color:white;padding:12px 19px;border-radius:12px;box-shadow:0 7px 28px #13345255;font-size:13px;z-index:30;opacity:0;transform:translateY(15px);pointer-events:none;transition:.2s}.toaster.show{opacity:1;transform:translateY(0)}.sources{font-size:13px}.sources a{display:inline-block;padding:6px 0}.bottom-note{max-width:1470px;margin:0 auto 40px;color:#8b99aa;text-align:center;font-size:11px;padding:0 20px}
+:root{--bg:#f3f6fa;--card:#ffffff;--text:#15273f;--muted:#627891;--line:#d8e3ef;--pri:#1a5ddc;--pri-soft:#eef4ff;--succ:#0f9f6e;--succ-soft:#eafaf3;--warn:#c47d0b;--warn-soft:#fff7eb;--dang:#d9383a;--dang-soft:#fdf0f0;--chip:#eaf0f8}
+*{box-sizing:border-box}body{margin:0;font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;background:var(--bg);color:var(--text);line-height:1.45}button,input,select,textarea{font:inherit}
+.mast{position:sticky;top:0;z-index:20;background:#0d233e;color:#fff;display:flex;align-items:center;justify-content:space-between;padding:0 24px;height:72px;border-bottom:1px solid rgba(255,255,255,.08);box-shadow:0 4px 18px rgba(9,23,43,.2)}
+.brand{display:flex;align-items:center;gap:12px}.brandmark{width:38px;height:38px;border-radius:10px;background:linear-gradient(135deg,#2e72ff,#00b4d8);display:grid;place-items:center;font-weight:900;font-size:20px;color:#fff;box-shadow:0 4px 12px rgba(46,114,255,.35)}.brand strong{font-size:16px;letter-spacing:.3px;display:block}.brand small{font-size:11px;color:#8ca6c5;font-weight:600;display:block;letter-spacing:.5px}
+.mast-right{display:flex;align-items:center;gap:14px}
+.count-clock{display:flex;align-items:center;gap:10px}.mini-status{font-size:12px;font-weight:700;color:#94adc7;background:rgba(255,255,255,.08);padding:6px 10px;border-radius:8px}
+.clock{font-family:ui-monospace,SFMono-Regular,Menlo,Monaco,Consolas,monospace;font-size:20px;font-weight:800;letter-spacing:1px;background:#071424;padding:6px 14px;border-radius:10px;border:1px solid rgba(255,255,255,.12);color:#38bdf8}
+.clock.urgent{background:#450a0a;border-color:#ef4444;color:#fca5a5;animation:pulse 1s infinite}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.7}}
+.btn{cursor:pointer;border:1px solid var(--line);background:#fff;color:var(--text);border-radius:10px;padding:9px 15px;font-size:13px;font-weight:700;transition:.15s;display:inline-flex;align-items:center;justify-content:center;gap:6px;text-decoration:none}
+.btn:hover{background:#f8fafc;border-color:#b8cee6}
+.btn.primary{background:var(--pri);border-color:var(--pri);color:#fff}.btn.primary:hover{background:#154ebd}
+.btn.soft{background:var(--pri-soft);border-color:#cfe0ff;color:var(--pri)}.btn.soft:hover{background:#deecff}
+.btn.small{padding:6px 11px;font-size:12px;border-radius:8px}
+.btn.block{width:100%}
+.btn.danger{background:#fee2e2;border-color:#fca5a5;color:#b91c1c}.btn.danger:hover{background:#fecaca}
+.layout{max-width:1470px;margin:0 auto;display:grid;grid-template-columns:300px minmax(0,1fr);gap:24px;padding:24px 20px 48px;align-items:start}
+.sidebar{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:20px;box-shadow:0 4px 16px rgba(15,35,60,.03);position:sticky;top:92px;max-height:calc(100vh - 110px);overflow-y:auto}
+.sidehead{display:flex;align-items:center;justify-content:space-between;margin-bottom:12px;font-size:14px}.sidehead b{color:#13263e}.sidehead span{font-size:12px;font-weight:750;color:var(--pri);background:var(--pri-soft);padding:3px 8px;border-radius:6px}
+.progress-track{height:6px;background:#e9f0f8;border-radius:99px;overflow:hidden;margin-bottom:14px}
+.progress-fill{height:100%;background:linear-gradient(90deg,#2e72ff,#00b4d8);border-radius:99px;transition:.2s}
+.selectbox{display:block;font-size:11px;font-weight:800;color:#6b829c;letter-spacing:.5px;margin-bottom:10px}
+.selectbox select{width:100%;margin-top:4px;padding:8px 10px;border-radius:8px;border:1px solid var(--line);background:#fff;font-size:13px;color:var(--text);outline:none}
+.tabrow{display:grid;grid-template-columns:repeat(4,1fr);gap:4px;margin-bottom:14px;background:#edf3f9;padding:3px;border-radius:9px}
+.tab{background:none;border:none;border-radius:7px;padding:6px 4px;font-size:11px;font-weight:750;color:#627891;cursor:pointer;transition:.12s;text-align:center}
+.tab.active{background:#fff;color:var(--pri);box-shadow:0 2px 6px rgba(10,25,45,.08)}
+.palette{display:grid;grid-template-columns:repeat(5,1fr);gap:6px;margin-bottom:16px}
+.number{border:1px solid #d5e2f0;background:#fff;border-radius:8px;font-weight:750;font-size:12px;color:#354a63;cursor:pointer;height:36px;display:grid;place-items:center;transition:.12s;position:relative}
+.number:hover{border-color:var(--pri);color:var(--pri);background:#f7faff}
+.number.current{outline:2px solid var(--pri);outline-offset:1px}
+.number.done{background:#eafaf3;border-color:#b5eccf;color:#0c7a54}
+.number.good{background:#eafaf3;border-color:#9de7bf;color:#0b7450}
+.number.bad{background:#fdf0f0;border-color:#f8c3c3;color:#b91c1c}
+.number.flag:after{content:'';position:absolute;top:2px;right:2px;width:6px;height:6px;border-radius:50%;background:#eab308}
+.legend{display:flex;gap:12px;font-size:11px;color:#71879f;margin-top:10px;justify-content:center}
+.legend span{display:inline-flex;align-items:center;gap:5px}
+.legend i{width:10px;height:10px;border-radius:3px;display:inline-block;border:1px solid #ccc}
+.legend .good{background:#eafaf3;border-color:#b5eccf}
+.legend .mark{background:#fff;border-color:#d5e2f0;position:relative}
+.legend .mark:after{content:'';position:absolute;top:1px;right:1px;width:4px;height:4px;border-radius:50%;background:#eab308}
+.sidehint{font-size:11px;color:#859bb3;line-height:1.45;margin:12px 0 0;text-align:center}
+.pal-toggle{display:none}
+.main-col{min-width:0}
+.crumb{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;color:#6b829c;font-size:12px;font-weight:700}
+.summaryline{display:flex;gap:12px}
+.qcard{background:var(--card);border:1px solid var(--line);border-radius:20px;overflow:hidden;box-shadow:0 6px 20px rgba(15,35,60,.04)}
+.qhead{display:flex;align-items:center;justify-content:space-between;padding:18px 26px;background:#f9fbfe;border-bottom:1px solid var(--line)}
+.qtitle{font-size:18px;font-weight:850;color:#10223a}
+.meta{display:flex;gap:8px;align-items:center}
+.pill{background:#edf3f9;color:#4c627a;font-size:11px;font-weight:750;padding:5px 9px;border-radius:7px}
+.pill.code{background:#fef3c7;color:#92400e}
+.pill.olympic{background:#fce7f3;color:#9d174d}
+.pill.hard{background:#ede9fe;color:#5b21b6}
+.pill.multi{background:#e0f2fe;color:#0369a1}
+.qbody{padding:26px}
+.question{font-size:17px;font-weight:700;color:#12253e;line-height:1.55;margin-bottom:20px}
+.math{font-family:ui-serif,Georgia,Cambria,"Times New Roman",Times,serif;font-style:italic}
+.qcode{background:#0e1e32;color:#f1f5f9;padding:16px 18px;border-radius:12px;font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;line-height:1.5;overflow-x:auto;margin:14px 0 20px;border:1px solid #1e3552}
+.options{display:grid;grid-template-columns:1fr;gap:10px;margin-bottom:20px}
+.option{background:#fff;border:1.5px solid #d5e2f0;border-radius:14px;padding:14px 16px;text-align:left;display:flex;align-items:flex-start;gap:14px;cursor:pointer;transition:.15s;color:#152840}
+.option:hover:not([disabled]){border-color:#a5c7f2;background:#f8fbff;transform:translateY(-1px)}
+.bubble{width:28px;height:28px;border-radius:8px;background:#edf3fa;color:#475e77;font-weight:850;font-size:13px;display:grid;place-items:center;flex-shrink:0;transition:.12s}
+.opt-text{flex:1;font-size:14.5px;line-height:1.5;padding-top:2px}
+.option.selected{border-color:var(--pri);background:#f2f7ff}
+.option.selected .bubble{background:var(--pri);color:#fff}
+.option.iscorrect{border-color:#10b981;background:#ecfdf5}
+.option.iscorrect .bubble{background:#10b981;color:#fff}
+.option.iswrong{border-color:#ef4444;background:#fef2f2}
+.option.iswrong .bubble{background:#ef4444;color:#fff}
+.option.missed{border-color:#f59e0b;background:#fffbeb}
+.option.missed .bubble{background:#f59e0b;color:#fff}
+.optcode{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:12px;background:rgba(0,0,0,.04);padding:8px;border-radius:6px;margin:0;white-space:pre-wrap}
+.rule{font-size:12px;color:#71879f;margin-bottom:14px;padding:8px 12px;background:#f3f7fb;border-radius:8px}
+.review-note{background:#f6f9fc;border:1px solid #dce6f2;border-radius:14px;padding:18px 20px;margin-top:16px}
+.review-note h3{margin:0 0 8px;font-size:15px;color:#122842}
+.answerline{font-size:13px;font-weight:750;color:#1a5ddc;margin-bottom:8px}
+.sourceinfo{font-size:11px;color:#7b91a7;margin-top:12px;padding-top:10px;border-top:1px dashed #cfdceb}
+.sourceinfo a{color:#1a5ddc}
+.actions{display:flex;align-items:center;gap:10px;padding:18px 26px;background:#f9fbfe;border-top:1px solid var(--line)}
+.actions .end{margin-left:auto}
+.intro-wrap{max-width:960px;margin:28px auto;padding:0 20px}
+.hero{background:linear-gradient(135deg,#0c233f,#15426b);color:#fff;border-radius:24px;padding:40px 36px;box-shadow:0 12px 32px rgba(9,25,48,.15);margin-bottom:24px}
+.eyebrow{font-size:11px;font-weight:800;letter-spacing:1px;color:#38bdf8;margin-bottom:10px;display:inline-block}
+.hero h1{font-size:32px;font-weight:900;margin:0 0 12px;line-height:1.25}
+.hero p{font-size:15px;color:#cde0f4;margin:0 0 24px;max-width:760px;line-height:1.6}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-bottom:28px}
+.chip{background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.18);color:#e2edf8;padding:6px 12px;border-radius:99px;font-size:12px;font-weight:750}
+.hero-bottom{display:flex;align-items:center;gap:18px;flex-wrap:wrap}
+.hero-bottom small{color:#cbd5e1;font-size:12px;max-width:500px;line-height:1.4}
+.overview{display:grid;grid-template-columns:repeat(4,1fr);gap:14px;margin-bottom:24px}
+.tile{background:#fff;border:1px solid var(--line);border-radius:16px;padding:18px;text-align:center}
+.tile b{display:block;font-size:24px;color:var(--pri);font-weight:900;margin-bottom:4px}
+.tile span{font-size:12px;color:#6b829c;font-weight:650;line-height:1.35}
+.section-card{background:#fff;border:1px solid var(--line);border-radius:18px;padding:26px;margin-bottom:24px}
+.section-card h2{margin:0 0 16px;font-size:18px;color:#10223a}
+.list-info{display:grid;grid-template-columns:repeat(2,1fr);gap:14px}
+.info-unit{background:#f8fafc;border:1px solid #e2eaf4;padding:14px 16px;border-radius:12px}
+.info-unit b{display:block;font-size:13px;color:#102542;margin-bottom:4px}
+.info-unit p{margin:0;font-size:12px;color:#647a92;line-height:1.45}
+.caution{background:#fffbeb;border:1px solid #fef3c7;color:#92400e;padding:14px 18px;border-radius:12px;font-size:13px;line-height:1.5;margin-top:16px}
+.result-hero{border-radius:18px;padding:27px 29px;background:linear-gradient(115deg,#112e52,#164f64);color:white;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+.result-hero h1{font-size:30px;margin:5px 0}.result-hero p{color:#c1d9e8;margin:0;font-size:13px}
+.scorebig{font-size:55px;font-weight:880;line-height:1;white-space:nowrap}.scorebig small{font-size:17px;color:#b0d6e2}
+.result-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-bottom:20px}
+.metric-card{border:1px solid var(--line);background:white;border-radius:14px;padding:17px}
+.metric-card .mname{font-size:12px;font-weight:750;color:#657c95}
+.metric-card .mline{display:flex;align-items:baseline;justify-content:space-between;font-size:21px;font-weight:800;margin:7px 0 12px}
+.metric-card .mline small{font-size:12px;color:#8d9dae;font-weight:600}
+.metric-card .bar{background:#edf3fa;height:7px;border-radius:20px;overflow:hidden}.metric-card .bar>div{height:100%;background:#14a894;border-radius:20px}
+.result-tools{border:1px solid var(--line);background:#fff;border-radius:14px;padding:14px;display:flex;gap:10px;flex-wrap:wrap;margin-bottom:18px;align-items:center}
+.result-tools select{border:1px solid var(--line);border-radius:10px;padding:10px;background:#fff}
+.result-summary{margin:12px 0 17px;font-size:13px;color:#607590}
+.toaster{position:fixed;bottom:24px;right:22px;background:#183759;color:white;padding:12px 19px;border-radius:12px;box-shadow:0 7px 28px #13345255;font-size:13px;z-index:30000;opacity:0;transform:translateY(15px);pointer-events:none;transition:.2s}.toaster.show{opacity:1;transform:translateY(0)}
+.sources{font-size:13px}.sources a{display:inline-block;padding:6px 0}
+.bottom-note{max-width:1470px;margin:0 auto 40px;color:#8b99aa;text-align:center;font-size:11px;padding:0 20px}
 @media(max-width:1080px){.layout{grid-template-columns:248px minmax(0,1fr);gap:14px}.palette{grid-template-columns:repeat(5,1fr)}.qbody{padding:24px}.question{font-size:18px}.qhead{padding:17px 22px}}
-@media(max-width:760px){.mast{height:65px;padding:0 12px}.brand strong{font-size:13px}.brand small{font-size:9px}.brandmark{width:31px;height:31px;font-size:17px}.mini-status{display:none}.clock{font-size:16px}.ghost-on-dark{padding:7px}.intro-wrap{margin:15px auto}.hero{padding:29px 23px}.hero h1{font-size:31px}.hero p{font-size:14px}.overview{grid-template-columns:repeat(2,minmax(0,1fr))}.list-info{grid-template-columns:1fr}.layout{display:block;padding:12px 12px 30px}.sidebar{position:static;max-height:none;margin-bottom:14px;padding:14px}.palette{grid-template-columns:repeat(10,minmax(0,1fr));gap:5px}.number{font-size:10px;border-radius:5px}.sidebar .sidehint{display:none}.sidebar:not(.showPalette) .selectbox,.sidebar:not(.showPalette) .tabrow,.sidebar:not(.showPalette) .palette,.sidebar:not(.showPalette) .legend{display:none}.pal-toggle{display:block;width:100%;margin-top:10px;padding:9px;color:#235a9e;border:1px solid #d4e4f6;background:#f1f7ff;border-radius:9px;font-weight:700}.crumb{margin:7px 0 12px}.qtitle{font-size:17px}.qhead{padding:13px 14px;align-items:flex-start}.qbody{padding:18px 14px}.question{font-size:16px}.option{padding:12px 10px;gap:8px}.actions{padding:14px;gap:7px}.btn{padding:10px 12px;font-size:12px}.actions .end{margin-left:0}.result-hero{padding:20px}.scorebig{font-size:36px}.result-grid{grid-template-columns:1fr}.meta{gap:4px}.pill{padding:4px 6px;font-size:10px}.sidebar .selectbox{margin-top:8px}}
+@media(max-width:760px){.mast{height:65px;padding:0 12px}.brand strong{font-size:13px}.brand small{font-size:9px}.brandmark{width:31px;height:31px;font-size:17px}.mini-status{display:none}.clock{font-size:16px}.intro-wrap{margin:15px auto}.hero{padding:29px 23px}.hero h1{font-size:31px}.hero p{font-size:14px}.overview{grid-template-columns:repeat(2,minmax(0,1fr))}.list-info{grid-template-columns:1fr}.layout{display:block;padding:12px 12px 30px}.sidebar{position:static;max-height:none;margin-bottom:14px;padding:14px}.palette{grid-template-columns:repeat(10,minmax(0,1fr));gap:5px}.number{font-size:10px;border-radius:5px}.sidebar .sidehint{display:none}.sidebar:not(.showPalette) .selectbox,.sidebar:not(.showPalette) .tabrow,.sidebar:not(.showPalette) .palette,.sidebar:not(.showPalette) .legend{display:none}.pal-toggle{display:block;width:100%;margin-top:10px;padding:9px;color:#235a9e;border:1px solid #d4e4f6;background:#f1f7ff;border-radius:9px;font-weight:700}.crumb{margin:7px 0 12px}.qtitle{font-size:17px}.qhead{padding:13px 14px;align-items:flex-start}.qbody{padding:18px 14px}.question{font-size:16px}.option{padding:12px 10px;gap:8px}.actions{padding:14px;gap:7px}.btn{padding:10px 12px;font-size:12px}.actions .end{margin-left:0}.result-hero{padding:20px}.scorebig{font-size:36px}.result-grid{grid-template-columns:1fr}.meta{gap:4px}.pill{padding:4px 6px;font-size:10px}.sidebar .selectbox{margin-top:8px}}
 @media(max-width:400px){.palette{grid-template-columns:repeat(8,1fr)}.mast-right{gap:5px}.clock{font-size:15px}.result-hero{display:block}.scorebig{margin-top:10px}}
 @media print{.mast,.sidebar,.actions,.result-tools,.btn,.intro-wrap{display:none!important}.layout{display:block}.qcard{box-shadow:none;border:1px solid #bbb}.qbody{padding:12px}.question{font-size:15px}.optcode{font-size:11px}.bottom-note{display:none}}
 
-/* User Tools & Header */
+/* Masthead Candidate Tools */
 .mast-tools{display:flex;align-items:center;gap:8px;flex-wrap:wrap}
-.user-badge{display:flex;align-items:center;gap:8px;background:rgba(255,255,255,.1);border:1px solid rgba(255,255,255,.16);padding:4px 10px 4px 6px;border-radius:999px;font-size:12px;color:#fff}
-.user-avatar{width:26px;height:26px;border-radius:50%;background:#10ac9d;color:#fff;display:grid;place-items:center;font-weight:800;font-size:11px;overflow:hidden;flex-shrink:0}
-.user-avatar img{width:100%;height:100%;object-fit:cover}
-.user-info-text{display:flex;flex-direction:column;line-height:1.2;text-align:left}
-.user-info-text strong{font-size:12px;color:#fff;max-width:140px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
-.user-info-text small{font-size:10px;color:#94adc7}
+.candidate-pill{display:inline-flex;align-items:center;gap:7px;background:rgba(255,255,255,.12);border:1px solid rgba(255,255,255,.24);padding:6px 12px;border-radius:999px;font-size:12px;color:#fff;cursor:pointer;transition:.15s}
+.candidate-pill:hover{background:rgba(255,255,255,.22);border-color:rgba(255,255,255,.45)}
+.cand-icon{font-size:13px}
+.cand-name{font-weight:750;max-width:180px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.cand-edit{font-size:10px;background:rgba(255,255,255,.18);padding:1px 6px;border-radius:4px;margin-left:2px}
 .btn-mast{background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);color:#e7f0ff;border-radius:9px;padding:8px 12px;font-size:12px;font-weight:700;transition:.15s;cursor:pointer}
 .btn-mast:hover{background:rgba(255,255,255,.18);color:#fff}
 .btn-mast.accent{background:#11ac9d;border-color:#11ac9d;color:#fff}
 .btn-mast.accent:hover{background:#15c4b3}
 .fs-tracker{display:inline-flex;align-items:center;gap:5px;font-size:11px;font-weight:750;padding:4px 8px;border-radius:6px;background:#fff2df;color:#8a4d0f;border:1px solid #ffdcb3}
+
+/* Candidate Box on Intro Screen */
+.candidate-box{background:#fff;border:1px solid #cce0f5;border-radius:18px;padding:22px 24px;margin-bottom:24px;box-shadow:0 8px 24px rgba(20,50,90,.05)}
+.candidate-box-header{display:flex;align-items:center;gap:12px;margin-bottom:16px;border-bottom:1px solid #edf2f7;padding-bottom:12px}
+.candidate-box-header .cand-icon-lg{font-size:28px}
+.candidate-box-header h3{margin:0;font-size:17px;color:#102542}
+.candidate-box-header p{margin:2px 0 0;font-size:12px;color:#6b829c}
+.candidate-fields{display:grid;grid-template-columns:2fr 1fr 2fr;gap:14px}
+@media(max-width:768px){.candidate-fields{grid-template-columns:1fr}}
+.field-item label{display:block;font-size:12px;font-weight:750;color:#394f69;margin-bottom:5px}
+.field-item .req{color:#d63031;font-weight:900}
+.form-group{margin-bottom:14px}
+.form-group label{display:block;font-size:12px;font-weight:750;color:#4e637b;margin-bottom:5px}
+.form-control{width:100%;padding:11px 13px;border:1px solid #cfdceb;border-radius:10px;font-size:14px;color:#15273f;outline:none;transition:.15s}
+.form-control:focus{border-color:#1a5ddc;box-shadow:0 0 0 3px #e4eeff}
 
 /* Fullscreen Violation Warning Overlay */
 .warning-overlay{position:fixed;inset:0;background:rgba(18,4,4,.95);backdrop-filter:blur(8px);z-index:99999;display:none;align-items:center;justify-content:center;padding:20px;color:#fff;animation:warnPulse 1.8s infinite alternate}
@@ -54,34 +169,46 @@
 .modal-head h2{margin:0;font-size:20px;color:#10223d}
 .modal-close{background:none;border:none;font-size:24px;cursor:pointer;color:#8a9bb0;padding:4px 8px;border-radius:8px;line-height:1}
 .modal-close:hover{background:#f0f4fa;color:#222}
-.auth-tabs{display:flex;border-bottom:2px solid #eef3f9;margin-bottom:20px;gap:8px}
-.auth-tab{background:none;border:none;font-size:15px;font-weight:750;color:#76889d;padding:8px 14px;cursor:pointer;border-bottom:2px solid transparent;margin-bottom:-2px}
-.auth-tab.active{color:#1a5ddc;border-bottom-color:#1a5ddc}
-.form-group{margin-bottom:14px}
-.form-group label{display:block;font-size:12px;font-weight:750;color:#4e637b;margin-bottom:5px}
-.form-control{width:100%;padding:11px 13px;border:1px solid #cfdceb;border-radius:10px;font-size:14px;color:#15273f;outline:none;transition:.15s}
-.form-control:focus{border-color:#1a5ddc;box-shadow:0 0 0 3px #e4eeff}
-.auth-error{background:#fff1f0;border:1px solid #ffd0cc;color:#b32a2a;padding:10px 14px;border-radius:10px;font-size:13px;margin-bottom:16px;display:none}
-.divider-or{display:flex;align-items:center;text-align:center;color:#9aaec4;font-size:12px;margin:18px 0}
-.divider-or:before,.divider-or:after{content:'';flex:1;border-bottom:1px solid #e3edf7}
-.divider-or:before{margin-right:12px}
-.divider-or:after{margin-left:12px}
-.google-wrap{display:flex;justify-content:center;min-height:44px;margin-top:10px}
+
+/* Live Ranking UI */
+.live-tag{display:inline-flex;align-items:center;gap:6px;font-size:11px;font-weight:800;color:#0d866a;background:#e5f9f3;border:1px solid #a8ebd9;padding:3px 10px;border-radius:999px;letter-spacing:.5px}
+.live-dot{width:7px;height:7px;border-radius:50%;background:#10ac84;display:inline-block;animation:livePulse 1.4s infinite}
+@keyframes livePulse{0%{box-shadow:0 0 0 0 rgba(16,172,132,.7)}70%{box-shadow:0 0 0 6px rgba(16,172,132,0)}100%{box-shadow:0 0 0 0 rgba(16,172,132,0)}}
+.live-rank-banner{background:linear-gradient(135deg,#0d3f66,#106b7c);color:#fff;border-radius:14px;padding:16px 20px;display:flex;align-items:center;justify-content:space-between;gap:14px;margin-top:14px;flex-wrap:wrap}
+.live-rank-banner .lrb-left{display:flex;flex-direction:column;gap:3px}
+.live-rank-banner .lrb-tag{display:inline-block;font-size:10px;font-weight:800;letter-spacing:.8px;background:rgba(255,255,255,.2);padding:2px 7px;border-radius:4px;width:max-content}
+.live-rank-banner strong{font-size:15px;color:#fff}
+.live-rank-banner span{font-size:12px;color:#d5ebff}
 .table-wrap{overflow-x:auto;margin-top:14px}
 .table-custom{width:100%;border-collapse:collapse;font-size:13px}
 .table-custom th,.table-custom td{padding:10px 12px;text-align:left;border-bottom:1px solid #ebf2f9}
 .table-custom th{background:#f6f9fd;font-weight:750;color:#52677e}
-.table-custom tr.highlight{background:#eef6ff;font-weight:750;color:#154580}
+.table-custom tr.highlight{background:#eaf4ff!important;font-weight:750;color:#0c3e74}
+.table-custom tr:hover{background:#f9fbfd}
 .rank-badge{display:inline-flex;width:24px;height:24px;border-radius:50%;place-items:center;justify-content:center;font-weight:850;font-size:11px}
 .rank-1{background:#ffeaa7;color:#855b08}
 .rank-2{background:#dfe6e9;color:#4d5b68}
 .rank-3{background:#fad390;color:#824707}
-.db-sync-badge{display:inline-flex;align-items:center;gap:6px;background:#e8f7f5;color:#0d8376;border:1px solid #a8e5dd;padding:8px 14px;border-radius:10px;font-size:13px;font-weight:700;margin-top:12px}
-
+.recent-feed-item{display:flex;align-items:center;justify-content:space-between;padding:6px 10px;border-radius:6px;background:#f6f9fc}
+.recent-feed-item:nth-child(even){background:#edf3f9}
 </style></head>
 <body>
-<header class="mast"><div class="brand"><div class="brandmark">A</div><div><strong>AIVIA</strong><small>MOCK 08 · NATIONAL SELECTION</small></div></div><div class="mast-right"><div id="headerStats" class="count-clock"><span class="mini-status">100 câu · 180 phút</span></div><div class="mast-tools"><div id="userHeader"></div><button class="btn-mast" data-act="leaderboard" title="Xem bảng xếp hạng">🏆 Xếp hạng</button><button class="btn-mast" data-act="history" title="Xem lịch sử làm bài">📋 Lịch sử</button><button class="btn-mast" data-act="sources">Nguồn & lưu ý</button></div></div></header>
-<div id="app"></div><div class="bottom-note">© AIVIA 2026 · Tài liệu tự biên soạn phục vụ luyện tập. Đề nguồn, chương trình và tài liệu tham chiếu thuộc chủ sở hữu tương ứng. Không phải đề chính thức của VOAI/IOAI.</div><div id="toast" class="toaster" role="status" aria-live="polite"></div>
+<header class="mast">
+  <div class="brand"><div class="brandmark">A</div><div><strong>AIVIA</strong><small>MOCK 08 · NATIONAL SELECTION</small></div></div>
+  <div class="mast-right">
+    <div id="headerStats" class="count-clock"><span class="mini-status">100 câu · 180 phút</span></div>
+    <div class="mast-tools">
+      <div id="candidateHeader"></div>
+      <button class="btn-mast accent" data-act="leaderboard" title="Xem bảng xếp hạng trực tiếp">🏆 Live Ranking</button>
+      <button class="btn-mast" data-act="history" title="Xem lịch sử làm bài">📋 Lịch sử thi</button>
+      <button class="btn-mast" data-act="sources">Nguồn & lưu ý</button>
+    </div>
+  </div>
+</header>
+<div id="app"></div>
+<div class="bottom-note">© AIVIA 2026 · Tài liệu tự biên soạn phục vụ luyện tập. Đề nguồn, chương trình và tài liệu tham chiếu thuộc chủ sở hữu tương ứng. Không phải đề chính thức của VOAI/IOAI.</div>
+<div id="toast" class="toaster" role="status" aria-live="polite"></div>
+
 <!-- Fullscreen Warning Modal -->
 <div id="warningOverlay" class="warning-overlay">
   <div class="warning-box">
@@ -93,81 +220,81 @@
   </div>
 </div>
 
-<!-- Modal: Đăng nhập / Đăng ký -->
-<div id="authModal" class="modal-overlay">
+<!-- Modal: Thông tin thí sinh (Kiểu Azota - Không cần tài khoản) -->
+<div id="candidateModal" class="modal-overlay">
   <div class="modal-card">
     <div class="modal-head">
-      <h2 id="authModalTitle">Đăng nhập tài khoản</h2>
-      <button class="modal-close" data-close="authModal">&times;</button>
+      <h2>🎓 Thông tin thí sinh</h2>
+      <button class="modal-close" data-close="candidateModal">&times;</button>
     </div>
-    <div class="auth-tabs">
-      <button class="auth-tab active" id="tabLogin" data-auth-mode="login">Đăng nhập</button>
-      <button class="auth-tab" id="tabRegister" data-auth-mode="register">Đăng ký mới</button>
+    <div style="font-size:13px;color:#5a6e85;margin-bottom:16px;line-height:1.5">
+      Vào thi ngay kiểu <strong>Azota</strong>: chỉ cần nhập họ tên để hệ thống chấm điểm và ghi nhận vào <strong>Bảng xếp hạng trực tiếp</strong>. Không cần đăng ký tài khoản!
     </div>
-    <div id="authError" class="auth-error"></div>
-    <form id="authForm" onsubmit="return false;">
-      <div class="form-group" id="groupName" style="display:none;">
-        <label>Họ và tên *</label>
-        <input type="text" id="authName" class="form-control" placeholder="Nguyễn Văn A">
-      </div>
-      <div class="form-group" id="groupSchool" style="display:none;">
-        <label>Trường THPT / Đơn vị</label>
-        <input type="text" id="authSchool" class="form-control" placeholder="THPT Chuyên...">
-      </div>
-      <div class="form-group" id="groupClass" style="display:none;">
-        <label>Lớp</label>
-        <input type="text" id="authClass" class="form-control" placeholder="11 Tin, 12 Chuyên...">
+    <form id="candidateForm" onsubmit="return false;">
+      <div class="form-group">
+        <label>Họ và tên thí sinh <span style="color:#d63031;font-weight:900">*</span></label>
+        <input type="text" id="modalName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" required>
       </div>
       <div class="form-group">
-        <label>Địa chỉ Email *</label>
-        <input type="email" id="authEmail" class="form-control" placeholder="email@example.com" required>
+        <label>Lớp / Khối</label>
+        <input type="text" id="modalClass" class="form-control" placeholder="Ví dụ: 12 Tin, 11A1...">
       </div>
       <div class="form-group">
-        <label>Mật khẩu * (ít nhất 6 ký tự)</label>
-        <input type="password" id="authPassword" class="form-control" placeholder="••••••••" required>
+        <label>Trường THPT / SBD</label>
+        <input type="text" id="modalSchool" class="form-control" placeholder="Ví dụ: THPT Chuyên Hà Nội - Amsterdam">
       </div>
-      <button type="submit" id="btnSubmitAuth" class="btn primary block" style="margin-top:16px;padding:12px">Đăng nhập</button>
+      <div id="candidateError" style="display:none;color:#b32a2a;background:#fff1f0;padding:8px 12px;border-radius:8px;font-size:13px;margin-bottom:12px"></div>
+      <button type="submit" id="btnSaveCandidate" class="btn primary block" style="margin-top:16px;padding:12px;font-size:15px;font-weight:750">Xác nhận & Lưu thông tin</button>
     </form>
-    <div class="divider-or">hoặc</div>
-    <div class="google-wrap">
-      <div id="googleBtnContainer"></div>
-    </div>
-    <div id="googleNote" style="font-size:11px;color:#8a9bb0;text-align:center;margin-top:8px;"></div>
   </div>
 </div>
 
-<!-- Modal: Bảng xếp hạng -->
+<!-- Modal: Bảng xếp hạng trực tiếp (Live Ranking) -->
 <div id="leaderboardModal" class="modal-overlay">
-  <div class="modal-card" style="max-width:720px">
+  <div class="modal-card" style="max-width:820px">
     <div class="modal-head">
-      <h2>🏆 Bảng xếp hạng điểm thi</h2>
-      <button class="modal-close" data-close="leaderboardModal">&times;</button>
+      <div style="display:flex;align-items:center;gap:10px">
+        <h2 style="margin:0">🏆 BẢNG XẾP HẠNG TRỰC TIẾP</h2>
+        <span class="live-tag"><span class="live-dot"></span> LIVE</span>
+      </div>
+      <div style="display:flex;align-items:center;gap:8px">
+        <button class="btn small soft" id="btnRefreshLeaderboard" title="Cập nhật bảng xếp hạng">🔄 Làm mới</button>
+        <button class="modal-close" data-close="leaderboardModal">&times;</button>
+      </div>
     </div>
-    <div style="font-size:13px;color:#607590;margin-bottom:12px">Điểm cao nhất của mỗi thí sinh (xếp theo Điểm giảm dần, Thời gian làm bài tăng dần).</div>
+    <div style="font-size:13px;color:#5a6e85;margin-bottom:14px">
+      Mỗi thí sinh ghi nhận điểm cao nhất và thời gian nhanh nhất · Tự động cập nhật vào <code>database/results.db</code>.
+    </div>
     <div class="table-wrap">
       <table class="table-custom">
         <thead>
           <tr>
-            <th style="width:54px">Hạng</th>
+            <th style="width:60px;text-align:center">Hạng</th>
             <th>Thí sinh</th>
-            <th>Trường / Lớp</th>
+            <th>Lớp / Trường</th>
             <th style="text-align:right">Điểm</th>
             <th style="text-align:right">Thời gian</th>
+            <th style="text-align:center">Vi phạm</th>
+            <th style="text-align:right">Nộp lúc</th>
           </tr>
         </thead>
         <tbody id="leaderboardBody">
-          <tr><td colspan="5" style="text-align:center;color:#8a9bb0;padding:24px">Đang tải bảng xếp hạng...</td></tr>
+          <tr><td colspan="7" style="text-align:center;color:#8a9bb0;padding:24px">Đang tải bảng xếp hạng trực tiếp...</td></tr>
         </tbody>
       </table>
+    </div>
+    <div id="recentActivityBox" style="margin-top:18px;padding-top:14px;border-top:1px dashed #e2eaf4">
+      <div style="font-size:12px;font-weight:750;color:#6b8099;margin-bottom:8px">⚡ LƯỢT NỘP BÀI GẦN ĐÂY:</div>
+      <div id="recentActivityList" style="font-size:12px;color:#4f647d;display:flex;flex-direction:column;gap:5px"></div>
     </div>
   </div>
 </div>
 
-<!-- Modal: Lịch sử thi của tôi -->
+<!-- Modal: Lịch sử làm bài của bạn -->
 <div id="historyModal" class="modal-overlay">
-  <div class="modal-card" style="max-width:680px">
+  <div class="modal-card" style="max-width:700px">
     <div class="modal-head">
-      <h2>📋 Lịch sử các lần thi của bạn</h2>
+      <h2>📋 Lịch sử làm bài của bạn</h2>
       <button class="modal-close" data-close="historyModal">&times;</button>
     </div>
     <div id="historySummary" style="font-size:13px;color:#607590;margin-bottom:12px"></div>
@@ -176,11 +303,11 @@
         <thead>
           <tr>
             <th>Lần</th>
-            <th>Thời điểm</th>
+            <th>Thời điểm nộp</th>
             <th style="text-align:right">Điểm số</th>
             <th style="text-align:right">Thời gian</th>
             <th>Lý do nộp</th>
-            <th style="text-align:right">Vi phạm</th>
+            <th style="text-align:center">Vi phạm</th>
           </tr>
         </thead>
         <tbody id="historyBody">
@@ -197,6 +324,7 @@ const DB={"questions":[{"id":1,"kind":"S","topic":"ML/DL","question":"Một hệ
 const BANK=DB.questions;
 const SRCS=DB.sources;
 const STORAGE_KEY='aivia_mock08_v3';
+const CANDIDATE_KEY='aivia_candidate_azota';
 const EXAM_TIME=180*60*1000;
 const TOPICS=['ML/DL','Logic','Đạo đức','Thực tế','Code'];
 const STAGES=[['Nền tảng','01–20','20 câu'],['Trung bình','21–45','25 câu'],['Nâng cao','46–70','25 câu'],['Olympic','71–85','15 câu'],['Code','86–100','15 câu']];
@@ -217,9 +345,9 @@ let state={
   showSources:false,
   exitCount:0,
   violations:[],
-  attemptId:null,
   serverScore:null,
-  serverRank:null
+  serverRank:null,
+  totalParticipants:null
 };
 
 try{
@@ -232,22 +360,34 @@ try{
 
 if(!Number.isInteger(state.current)||state.current<1||state.current>100)state.current=1;
 
-let currentUser=null;
-let authMode='login';
-let apiConfig={googleClientId:'',examSeconds:180*60};
+// Thí sinh kiểu Azota (không cần mật khẩu)
+let candidate={name:'',class_name:'',school:''};
+try{
+  const raw=localStorage.getItem(CANDIDATE_KEY);
+  if(raw) candidate={...candidate,...JSON.parse(raw)};
+}catch(e){}
+
 const app=document.getElementById('app');
 let showToastTimer=null;
+let leaderboardPollTimer=null;
 
 function toast(s){
   const el=document.getElementById('toast');
+  if(!el) return;
   el.textContent=s;
   el.classList.add('show');
   clearTimeout(showToastTimer);
-  showToastTimer=setTimeout(()=>el.classList.remove('show'),2800);
+  showToastTimer=setTimeout(()=>el.classList.remove('show'),3200);
 }
 
 function save(){
   try{localStorage.setItem(STORAGE_KEY,JSON.stringify(state));}catch(e){}
+}
+
+function saveCandidate(info){
+  candidate={...candidate,...info};
+  try{localStorage.setItem(CANDIDATE_KEY,JSON.stringify(candidate));}catch(e){}
+  renderCandidateHeader();
 }
 
 function answersOf(q){
@@ -282,6 +422,7 @@ function secsLeft(){
 }
 
 function fmtTime(n){
+  n=Math.max(0,Math.round(n||0));
   return [Math.floor(n/3600),Math.floor((n%3600)/60),n%60].map(x=>String(x).padStart(2,'0')).join(':');
 }
 
@@ -340,7 +481,7 @@ function showWarningModal(count){
   const overlay=document.getElementById('warningOverlay');
   if(!overlay) return;
   document.getElementById('warningCountText').textContent=`VI PHẠM LẦN ${count} / 3`;
-  document.getElementById('warningRemainText').textContent=String(3-count);
+  document.getElementById('warningRemainText').textContent=String(Math.max(0, 3-count));
   overlay.style.display='flex';
 }
 
@@ -376,97 +517,15 @@ window.addEventListener('blur',()=>{
 });
 
 /* ========================================================================== */
-/* AUTHENTICATION & DATABASE SYNC                                             */
+/* API & LIVE RANKING (KIỂU AZOTA)                                            */
 /* ========================================================================== */
 async function apiRequest(path, method='GET', body=null){
   const opts={method, headers:{'Content-Type':'application/json'}};
   if(body) opts.body=JSON.stringify(body);
-  try{
-    const res=await fetch(path, opts);
-    const data=await res.json().catch(()=>({}));
-    if(!res.ok) throw new Error(data.error || `Lỗi máy chủ (${res.status})`);
-    return data;
-  }catch(err){
-    throw err;
-  }
-}
-
-async function initAuth(){
-  try{
-    const cfg=await apiRequest('/api/config').catch(()=>null);
-    if(cfg) apiConfig={...apiConfig, ...cfg};
-  }catch(e){}
-
-  try{
-    const me=await apiRequest('/api/me').catch(()=>null);
-    if(me && me.user){
-      currentUser=me.user;
-    }
-  }catch(e){}
-
-  renderUserHeader();
-  initGoogleAuth();
-}
-
-function renderUserHeader(){
-  const container=document.getElementById('userHeader');
-  if(!container) return;
-  if(currentUser){
-    const initial=(currentUser.name||'U').charAt(0).toUpperCase();
-    const avatar=currentUser.avatar_url
-      ? `<img src="${ESC(currentUser.avatar_url)}" alt="avatar">`
-      : initial;
-    const sub=currentUser.school ? (currentUser.class_name ? `${currentUser.class_name} - ${currentUser.school}` : currentUser.school) : 'Thí sinh';
-    container.innerHTML=`<div class="user-badge" title="${ESC(currentUser.email)}">
-      <div class="user-avatar">${avatar}</div>
-      <div class="user-info-text">
-        <strong>${ESC(currentUser.name)}</strong>
-        <small>${ESC(sub)}</small>
-      </div>
-      <button class="btn-mast" data-act="logout" style="padding:4px 8px;font-size:11px;margin-left:4px">Thoát</button>
-    </div>`;
-  } else {
-    container.innerHTML=`<button class="btn-mast accent" data-act="openAuth">Đăng nhập / Đăng ký</button>`;
-  }
-}
-
-function initGoogleAuth(){
-  if(!apiConfig.googleClientId){
-    const note=document.getElementById('googleNote');
-    if(note) note.textContent='(Đăng nhập Google: kích hoạt trong server/config.json)';
-    return;
-  }
-  if(window.google && window.google.accounts && window.google.accounts.id){
-    try{
-      window.google.accounts.id.initialize({
-        client_id: apiConfig.googleClientId,
-        callback: handleGoogleCredential
-      });
-      const el=document.getElementById('googleBtnContainer');
-      if(el){
-        window.google.accounts.id.renderButton(el, {
-          theme:'outline',
-          size:'large',
-          text:'continue_with',
-          width:280
-        });
-      }
-    }catch(e){
-      console.warn('Google auth init error:', e);
-    }
-  }
-}
-
-async function handleGoogleCredential(response){
-  try{
-    const res=await apiRequest('/api/google', 'POST', {credential: response.credential});
-    currentUser=res.user;
-    renderUserHeader();
-    closeModal('authModal');
-    toast(`Xin chào, ${currentUser.name}!`);
-  }catch(err){
-    showAuthError(err.message);
-  }
+  const res=await fetch(path, opts);
+  const data=await res.json().catch(()=>({}));
+  if(!res.ok) throw new Error(data.error || `Lỗi máy chủ (${res.status})`);
+  return data;
 }
 
 function openModal(id){
@@ -477,145 +536,178 @@ function openModal(id){
 function closeModal(id){
   const el=document.getElementById(id);
   if(el) el.classList.remove('open');
+  if(id==='leaderboardModal' && leaderboardPollTimer){
+    clearInterval(leaderboardPollTimer);
+    leaderboardPollTimer=null;
+  }
 }
 
-function showAuthError(msg){
-  const err=document.getElementById('authError');
-  if(!err) return;
-  err.textContent=msg;
-  err.style.display='block';
+function renderCandidateHeader(){
+  const container=document.getElementById('candidateHeader');
+  if(!container) return;
+  if(candidate.name && candidate.name.trim()){
+    const displayInfo=candidate.class_name ? `${candidate.name} (${candidate.class_name})` : candidate.name;
+    container.innerHTML=`<button class="candidate-pill" data-act="openCandidateModal" title="Nhấp để sửa thông tin thí sinh">
+      <span class="cand-icon">👤</span>
+      <span class="cand-name">${ESC(displayInfo)}</span>
+      <span class="cand-edit">✎ Đổi</span>
+    </button>`;
+  } else {
+    container.innerHTML=`<button class="btn-mast accent" data-act="openCandidateModal">👤 Nhập tên thí sinh</button>`;
+  }
 }
 
-function hideAuthError(){
-  const err=document.getElementById('authError');
+function openCandidateModal(){
+  document.getElementById('modalName').value=candidate.name||'';
+  document.getElementById('modalClass').value=candidate.class_name||'';
+  document.getElementById('modalSchool').value=candidate.school||'';
+  const err=document.getElementById('candidateError');
   if(err) err.style.display='none';
+  openModal('candidateModal');
 }
 
-function setAuthMode(mode){
-  authMode=mode;
-  hideAuthError();
-  const isReg=mode==='register';
-  document.getElementById('tabLogin').classList.toggle('active', !isReg);
-  document.getElementById('tabRegister').classList.toggle('active', isReg);
-  document.getElementById('authModalTitle').textContent=isReg?'Đăng ký tài khoản mới':'Đăng nhập tài khoản';
-  document.getElementById('btnSubmitAuth').textContent=isReg?'Tạo tài khoản':'Đăng nhập';
-  document.getElementById('groupName').style.display=isReg?'block':'none';
-  document.getElementById('groupSchool').style.display=isReg?'block':'none';
-  document.getElementById('groupClass').style.display=isReg?'block':'none';
-}
+function saveCandidateFromModal(){
+  const name=document.getElementById('modalName').value.trim();
+  const className=document.getElementById('modalClass').value.trim();
+  const school=document.getElementById('modalSchool').value.trim();
+  const err=document.getElementById('candidateError');
 
-async function handleAuthSubmit(){
-  hideAuthError();
-  const email=document.getElementById('authEmail').value.trim();
-  const password=document.getElementById('authPassword').value;
-  if(!email || !password){
-    showAuthError('Vui lòng nhập đầy đủ email và mật khẩu.');
+  if(!name){
+    if(err){
+      err.textContent='Vui lòng nhập Họ và tên thí sinh.';
+      err.style.display='block';
+    }
     return;
   }
 
-  const btn=document.getElementById('btnSubmitAuth');
-  btn.disabled=true;
-  btn.textContent='Đang xử lý...';
+  saveCandidate({name, class_name:className, school});
+  closeModal('candidateModal');
+  toast(`✓ Đã lưu thông tin: ${name}`);
 
-  try{
-    let res;
-    if(authMode==='register'){
-      const name=document.getElementById('authName').value.trim();
-      const school=document.getElementById('authSchool').value.trim();
-      const className=document.getElementById('authClass').value.trim();
-      if(!name){
-        showAuthError('Vui lòng nhập họ và tên.');
-        btn.disabled=false;
-        btn.textContent='Tạo tài khoản';
-        return;
-      }
-      res=await apiRequest('/api/register', 'POST', {email, password, name, school, class_name:className});
-    } else {
-      res=await apiRequest('/api/login', 'POST', {email, password});
-    }
-    currentUser=res.user;
-    renderUserHeader();
-    closeModal('authModal');
-    toast(`Xin chào, ${currentUser.name}!`);
-  }catch(err){
-    showAuthError(err.message);
-  }finally{
-    btn.disabled=false;
-    btn.textContent=authMode==='register'?'Tạo tài khoản':'Đăng nhập';
-  }
+  // Cập nhật lại các ô nhập trên màn hình intro nếu đang mở
+  const inName=document.getElementById('introName');
+  if(inName) inName.value=name;
+  const inClass=document.getElementById('introClass');
+  if(inClass) inClass.value=className;
+  const inSchool=document.getElementById('introSchool');
+  if(inSchool) inSchool.value=school;
 }
 
-async function handleLogout(){
-  if(!confirm('Bạn có chắc muốn đăng xuất?')) return;
-  try{
-    await apiRequest('/api/logout', 'POST', {});
-  }catch(e){}
-  currentUser=null;
-  renderUserHeader();
-  toast('Đã đăng xuất.');
-}
-
-async function showLeaderboard(){
+async function showLeaderboard(silent=false){
   openModal('leaderboardModal');
   const tbody=document.getElementById('leaderboardBody');
-  tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:24px;color:#8a9bb0">Đang tải dữ liệu xếp hạng...</td></tr>';
+  const recentList=document.getElementById('recentActivityList');
+  if(!silent && tbody){
+    tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:24px;color:#8a9bb0">Đang nạp bảng xếp hạng trực tiếp...</td></tr>';
+  }
+
   try{
-    const res=await apiRequest('/api/leaderboard');
+    const res=await apiRequest('/api/ranking');
     if(!res.rows || !res.rows.length){
-      tbody.innerHTML='<tr><td colspan="5" style="text-align:center;padding:24px;color:#8a9bb0">Chưa có lượt thi nào được ghi nhận. Hãy là người đầu tiên!</td></tr>';
+      tbody.innerHTML='<tr><td colspan="7" style="text-align:center;padding:24px;color:#8a9bb0">Chưa có lượt nộp bài nào. Hãy là người đầu tiên!</td></tr>';
+      if(recentList) recentList.innerHTML='<span style="color:#9ab">Chưa có hoạt động mới.</span>';
       return;
     }
-    tbody.innerHTML=res.rows.map((r,idx)=>{
-      const rank=idx+1;
-      const rankBadge=rank<=3?`<span class="rank-badge rank-${rank}">${rank}</span>`:`#${rank}`;
-      const sub=r.school ? (r.class_name ? `${r.class_name} - ${r.school}` : r.school) : '-';
+
+    const curName=(candidate.name||'').trim().toLowerCase();
+    const curClass=(candidate.class_name||'').trim().toLowerCase();
+
+    tbody.innerHTML=res.rows.map(r=>{
+      const isMe=curName && r.name.trim().toLowerCase()===curName && (!curClass || (r.class_name||'').trim().toLowerCase()===curClass);
+      const rankBadge=r.rank===1?'<span class="rank-badge rank-1">🥇</span>'
+                     :r.rank===2?'<span class="rank-badge rank-2">🥈</span>'
+                     :r.rank===3?'<span class="rank-badge rank-3">🥉</span>'
+                     :`#${r.rank}`;
+      const sub=r.school ? (r.class_name ? `${r.class_name} · ${r.school}` : r.school) : (r.class_name||'-');
       const duration=r.duration_sec ? fmtTime(r.duration_sec) : '-';
-      return `<tr class="${r.me?'highlight':''}">
+      const exitTag=r.exit_count>=3 ? '<span style="color:#d63031;font-weight:800">⚠️ 3 lần (Khóa)</span>'
+                   :r.exit_count>0 ? `<span style="color:#e67e22;font-weight:700">⚠️ ${r.exit_count} lần</span>`
+                   :'<span style="color:#10ac84">✓ 0</span>';
+
+      return `<tr class="${isMe?'highlight':''}">
         <td style="text-align:center">${rankBadge}</td>
-        <td><strong>${ESC(r.name)}</strong>${r.me?' <span style="font-size:10px;background:#1a5ddc;color:#fff;padding:2px 6px;border-radius:4px">Tôi</span>':''}</td>
-        <td style="color:#50647c">${ESC(sub)}</td>
-        <td style="text-align:right"><strong style="color:#10ac9d;font-size:15px">${r.score}</strong> / ${r.total}</td>
-        <td style="text-align:right;font-family:monospace">${duration}</td>
+        <td><strong>${ESC(r.name)}</strong>${isMe?' <span style="font-size:10px;background:#1a5ddc;color:#fff;padding:2px 6px;border-radius:4px;font-weight:800">Bạn</span>':''}</td>
+        <td style="color:#4a627d">${ESC(sub)}</td>
+        <td style="text-align:right"><strong style="color:#0ea5e9;font-size:15px">${r.score}</strong> <span style="color:#94a3b8">/ ${r.total}</span></td>
+        <td style="text-align:right;font-family:monospace;font-size:12.5px">${duration}</td>
+        <td style="text-align:center">${exitTag}</td>
+        <td style="text-align:right;color:#64748b;font-size:11.5px">${ESC(r.submitted_at||'')}</td>
       </tr>`;
     }).join('');
+
+    // Hiển thị 10 lượt nộp bài gần đây
+    if(recentList && res.recent){
+      if(!res.recent.length){
+        recentList.innerHTML='<span style="color:#9ab">Chưa có bài nộp gần đây.</span>';
+      } else {
+        recentList.innerHTML=res.recent.slice(0,5).map(rc=>{
+          const rcSub=rc.class_name?` (${ESC(rc.class_name)})`:'';
+          const reasonText=rc.submit_reason==='fullscreen'?' [Khóa màn hình]':rc.submit_reason==='timeout'?' [Hết giờ]':'';
+          return `<div class="recent-feed-item">
+            <span><strong>${ESC(rc.name)}</strong>${rcSub} nộp đạt <strong style="color:#0284c7">${rc.score}/100</strong> câu (${fmtTime(rc.duration_sec)})${reasonText}</span>
+            <span style="color:#94a3b8;font-size:11px">${ESC(rc.submitted_at||'')}</span>
+          </div>`;
+        }).join('');
+      }
+    }
+
+    // Tự động làm mới mỗi 8 giây khi modal đang mở
+    if(!leaderboardPollTimer){
+      leaderboardPollTimer=setInterval(()=>{
+        const modal=document.getElementById('leaderboardModal');
+        if(modal && modal.classList.contains('open')){
+          showLeaderboard(true);
+        } else {
+          clearInterval(leaderboardPollTimer);
+          leaderboardPollTimer=null;
+        }
+      }, 8000);
+    }
   }catch(err){
-    tbody.innerHTML=`<tr><td colspan="5" style="text-align:center;padding:24px;color:#c23939">Không tải được bảng xếp hạng (${ESC(err.message)}). Đảm bảo server/app.py đang chạy.</td></tr>`;
+    if(tbody){
+      tbody.innerHTML=`<tr><td colspan="7" style="text-align:center;padding:24px;color:#c23939">Không tải được bảng xếp hạng (${ESC(err.message)}). Đảm bảo server/app.py đang chạy trên máy hoặc mạng nội bộ.</td></tr>`;
+    }
   }
 }
 
 async function showHistory(){
-  if(!currentUser){
-    toast('Vui lòng đăng nhập để xem lịch sử làm bài của bạn.');
-    openModal('authModal');
+  if(!candidate.name || !candidate.name.trim()){
+    toast('Vui lòng nhập Họ và tên thí sinh trước khi xem lịch sử thi!');
+    openCandidateModal();
     return;
   }
   openModal('historyModal');
   const tbody=document.getElementById('historyBody');
   const summary=document.getElementById('historySummary');
-  tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:#8a9bb0">Đang tải lịch sử thi...</td></tr>';
-  summary.textContent='';
+  if(tbody) tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:#8a9bb0">Đang tải lịch sử thi...</td></tr>';
+  if(summary) summary.textContent='';
 
   try{
-    const res=await apiRequest('/api/attempts/mine');
-    if(!res.rows || !res.rows.length){
-      tbody.innerHTML='<tr><td colspan="6" style="text-align:center;padding:24px;color:#8a9bb0">Bạn chưa hoàn thành lượt thi nào.</td></tr>';
+    const res=await apiRequest(`/api/my-history?name=${encodeURIComponent(candidate.name)}&class_name=${encodeURIComponent(candidate.class_name||'')}`);
+    if(!res.history || !res.history.length){
+      tbody.innerHTML=`<tr><td colspan="6" style="text-align:center;padding:24px;color:#8a9bb0">Chưa có bài thi nào được ghi nhận cho thí sinh <strong>${ESC(candidate.name)}</strong>.</td></tr>`;
       return;
     }
-    summary.innerHTML=`Tổng cộng <strong>${res.rows.length}</strong> lượt thi. Xếp hạng tốt nhất hiện tại: <strong>#${res.rank || '-'}</strong>.`;
-    tbody.innerHTML=res.rows.map((r,idx)=>{
-      const reasonLabel=r.submit_reason==='fullscreen'?'⚠️ Vi phạm màn hình':r.submit_reason==='timeout'?'⏰ Hết giờ':'✓ Nộp thủ công';
+    summary.innerHTML=`Thí sinh <strong>${ESC(candidate.name)}</strong> có <strong>${res.history.length}</strong> lượt thi được lưu trong Database.`;
+    tbody.innerHTML=res.history.map((r,idx)=>{
+      const reasonLabel=r.submit_reason==='fullscreen'?'⚠️ Vi phạm màn hình'
+                       :r.submit_reason==='timeout'?'⏰ Hết giờ'
+                       :'✓ Nộp bài';
       const duration=r.duration_sec ? fmtTime(r.duration_sec) : '-';
+      const exitColor=r.exit_count>=3?'#d63031':r.exit_count>0?'#e67e22':'#10ac84';
       return `<tr>
-        <td>#${r.id}</td>
-        <td style="color:#52677e">${ESC(r.submitted_at || r.started_at)}</td>
-        <td style="text-align:right"><strong style="color:#10ac9d;font-size:15px">${r.score??'-'}</strong> / ${r.total||100}</td>
+        <td>#${res.history.length - idx}</td>
+        <td style="color:#4a627d">${ESC(r.submitted_at||'')}</td>
+        <td style="text-align:right"><strong style="color:#0ea5e9;font-size:15px">${r.score}</strong> / ${r.total}</td>
         <td style="text-align:right;font-family:monospace">${duration}</td>
         <td><span style="font-size:12px">${reasonLabel}</span></td>
-        <td style="text-align:right"><span style="color:${r.exit_count>0?'#b02828':'#13824c'}">${r.exit_count||0} lần</span></td>
+        <td style="text-align:center"><span style="color:${exitColor};font-weight:750">${r.exit_count||0} lần</span></td>
       </tr>`;
     }).join('');
   }catch(err){
-    tbody.innerHTML=`<tr><td colspan="6" style="text-align:center;padding:24px;color:#c23939">Lỗi tải lịch sử thi: ${ESC(err.message)}</td></tr>`;
+    if(tbody){
+      tbody.innerHTML=`<tr><td colspan="6" style="text-align:center;padding:24px;color:#c23939">Lỗi tải lịch sử thi: ${ESC(err.message)}</td></tr>`;
+    }
   }
 }
 
@@ -623,7 +715,29 @@ async function showHistory(){
 /* BẮT ĐẦU & NỘP BÀI THI                                                      */
 /* ========================================================================== */
 async function start(){
-  // Tự động phóng to toàn màn hình khi bắt đầu làm bài
+  // Đọc thông tin từ ô input trên intro screen nếu có
+  const inName=document.getElementById('introName');
+  const inClass=document.getElementById('introClass');
+  const inSchool=document.getElementById('introSchool');
+  if(inName) candidate.name=inName.value.trim();
+  if(inClass) candidate.class_name=inClass.value.trim();
+  if(inSchool) candidate.school=inSchool.value.trim();
+
+  // Bắt buộc phải có họ và tên kiểu Azota
+  if(!candidate.name || !candidate.name.trim()){
+    toast('⚠️ Vui lòng nhập Họ và tên thí sinh trước khi bắt đầu bài thi!');
+    if(inName){
+      inName.focus();
+      inName.scrollIntoView({behavior:'smooth', block:'center'});
+    } else {
+      openCandidateModal();
+    }
+    return;
+  }
+
+  saveCandidate(candidate);
+
+  // Tự động kích hoạt toàn màn hình
   enterFullscreen();
 
   state.started=true;
@@ -635,29 +749,17 @@ async function start(){
   state.violations=[];
   state.serverScore=null;
   state.serverRank=null;
-  state.attemptId=null;
-
-  // Nếu người dùng đã đăng nhập và kết nối máy chủ -> tạo attempt mới trên DB
-  if(currentUser){
-    try{
-      const res=await apiRequest('/api/attempts/start', 'POST', {});
-      if(res && res.attempt_id){
-        state.attemptId=res.attempt_id;
-      }
-    }catch(e){
-      console.warn('Could not start server attempt:', e);
-    }
-  }
+  state.totalParticipants=null;
 
   save();
   render();
-  toast('Đã bật chế độ toàn màn hình. Hãy tập trung làm bài!');
+  toast(`🚀 Chúc thí sinh ${candidate.name} làm bài tốt! Chế độ toàn màn hình đã bật.`);
 }
 
 async function submit(auto=false, reason='manual'){
   if(state.finished) return;
   const t=totals();
-  if(!auto && !confirm(`Bạn đã làm ${t.done}/100 câu. Nộp bài để chấm điểm và lưu kết quả vào database?`)) return;
+  if(!auto && !confirm(`Bạn đã làm ${t.done}/100 câu. Nộp bài để chấm điểm và cập nhật Bảng xếp hạng trực tiếp?`)) return;
 
   state.finished=true;
   state.screen='result';
@@ -665,27 +767,29 @@ async function submit(auto=false, reason='manual'){
   exitFullscreenSafe();
   hideWarningModal();
 
-  // Gửi bài làm lên server để chấm và lưu vào database/users.db
-  if(currentUser && state.attemptId){
-    try{
-      toast('Đang gửi bài và lưu điểm vào Database...');
-      const res=await apiRequest(`/api/attempts/${state.attemptId}/submit`, 'POST', {
-        answers:state.answers,
-        exit_count:state.exitCount||0,
-        reason:reason,
-        violations:state.violations||[]
-      });
-      if(res && res.score!==undefined){
-        state.serverScore=res.score;
-        state.serverRank=res.rank;
-        toast(`✅ Đã lưu điểm vào Database! Điểm: ${res.score}/100. Xếp hạng: #${res.rank||'-'}`);
-      }
-    }catch(err){
-      console.warn('Lỗi submit lên server:', err);
-      toast('Lưu ý: Không đồng bộ được với server. Điểm đã chấm cục bộ.');
+  const durationSec=Math.max(1, Math.min(180*60, Math.round((Date.now() - (state.deadline - EXAM_TIME)) / 1000) || (180*60 - secsLeft())));
+  const payload={
+    name: (candidate.name || 'Thí sinh tự do').trim(),
+    class_name: (candidate.class_name || '').trim(),
+    school: (candidate.school || '').trim(),
+    answers: state.answers,
+    duration_sec: durationSec,
+    exit_count: state.exitCount || 0,
+    reason: reason
+  };
+
+  try{
+    toast('Đang gửi bài và cập nhật Bảng xếp hạng trực tiếp...');
+    const res=await apiRequest('/api/submit', 'POST', payload);
+    if(res && res.score!==undefined){
+      state.serverScore=res.score;
+      state.serverRank=res.rank;
+      state.totalParticipants=res.total_participants;
+      toast(`🏆 Đã ghi nhận! Điểm: ${res.score}/100 · Hạng: #${res.rank}/${res.total_participants}`);
     }
-  } else if(!currentUser){
-    toast('Bài thi đã nộp! Đăng nhập để lưu kết quả vào Database cho các lần sau.');
+  }catch(err){
+    console.warn('Lỗi kết nối server submit:', err);
+    toast('Bài thi đã nộp cục bộ. (Chạy server/app.py để lưu điểm vào SQLite & Live Ranking)');
   }
 
   save();
@@ -710,9 +814,9 @@ function reset(){
     showSources:false,
     exitCount:0,
     violations:[],
-    attemptId:null,
     serverScore:null,
-    serverRank:null
+    serverRank:null,
+    totalParticipants:null
   };
   render();
 }
@@ -784,6 +888,7 @@ function sourcebox(q){
 function summaryStats(){
   const t=totals();
   const top=document.getElementById('headerStats');
+  if(!top) return;
   if(!state.started){
     top.innerHTML='<span class="mini-status">100 câu · 180 phút</span>';
     return;
@@ -805,16 +910,88 @@ function showSources(){
 }
 
 function renderIntro(){
-  const loginPrompt = !currentUser
-    ? `<div style="background:#edf5ff;border:1px solid #cce0ff;border-radius:14px;padding:14px 18px;margin-bottom:20px;display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap">
-        <div><strong>💡 Mẹo:</strong> Bạn chưa đăng nhập. Đăng nhập để lưu điểm tự động vào database và tham gia Bảng xếp hạng.</div>
-        <button class="btn primary small" data-act="openAuth">Đăng nhập ngay</button>
-      </div>`
-    : `<div style="background:#e8f7f5;border:1px solid #b2e8e0;border-radius:14px;padding:12px 18px;margin-bottom:20px;color:#0f5c53">
-        ✓ Đang đăng nhập: <strong>${ESC(currentUser.name)}</strong> (${ESC(currentUser.school||'Thí sinh')}). Điểm sẽ tự động được ghi nhận vào Database.
-      </div>`;
+  app.innerHTML=`<div class="intro-wrap">
+    <!-- Candidate Information Card kiểu Azota -->
+    <div class="candidate-box">
+      <div class="candidate-box-header">
+        <span class="cand-icon-lg">🎓</span>
+        <div>
+          <h3>Thông tin thí sinh dự thi</h3>
+          <p>Kiểu Azota: Nhập Họ tên là vào thi ngay · Tự động xếp hạng Live Ranking vào database SQLite</p>
+        </div>
+      </div>
+      <div class="candidate-fields">
+        <div class="field-item">
+          <label>Họ và tên thí sinh <span class="req">*</span></label>
+          <input type="text" id="introName" class="form-control" placeholder="Ví dụ: Nguyễn Văn An" value="${ESC(candidate.name)}">
+          <div class="field-hint">Bắt buộc để định danh trên Bảng xếp hạng</div>
+        </div>
+        <div class="field-item">
+          <label>Lớp / Khối</label>
+          <input type="text" id="introClass" class="form-control" placeholder="12 Tin, 11A1..." value="${ESC(candidate.class_name)}">
+          <div class="field-hint">Tùy chọn</div>
+        </div>
+        <div class="field-item">
+          <label>Trường THPT / SBD</label>
+          <input type="text" id="introSchool" class="form-control" placeholder="THPT Chuyên..." value="${ESC(candidate.school)}">
+          <div class="field-hint">Tùy chọn</div>
+        </div>
+      </div>
+    </div>
 
-  app.innerHTML=`<div class="intro-wrap">${loginPrompt}<section class="hero"><div class="eyebrow">AIVIA / OPEN PRACTICE SERIES / MOCK 08</div><h1>Đề thi thử AI tổng hợp<br>từ nền tảng đến Olympic</h1><p>Mô phỏng <strong>vòng sơ loại trắc nghiệm VOAI</strong>, thiết kế bài đa dạng theo nguồn ôn tập Việt Nam và các kỳ tuyển chọn quốc gia. <strong>Code chỉ chiếm 15 câu</strong>; còn lại tập trung học máy, toán/logic, đạo đức và tình huống AI thực tế.</p><div class="chips"><span class="chip">100 câu</span><span class="chip">50 câu chọn một</span><span class="chip">50 câu chọn nhiều</span><span class="chip">180 phút</span><span class="chip">Toàn màn hình tự động</span><span class="chip">Lưu điểm vào Database</span></div><div class="hero-bottom"><button class="btn primary" data-act="start">Bắt đầu làm bài (Toàn màn hình) →</button><small>⚠️ Lưu ý: Trong lúc làm bài, nếu cố gắng thoát toàn màn hình hoặc chuyển tab 3 lần, bài thi sẽ tự động nộp ngay lập tức.</small></div></section><div class="overview"><div class="tile"><b>85</b><span>Câu kiến thức, tính toán, suy luận & thực tế</span></div><div class="tile"><b>15</b><span>Câu Python, NumPy, PyTorch & debugging</span></div><div class="tile"><b>4</b><span>Mức độ tăng dần</span></div><div class="tile"><b>3 lần</b><span>Giới hạn thoát màn hình tối đa</span></div></div><div class="section-card"><h2>Lộ trình của bộ đề</h2><div class="list-info">${STAGES.map((s,i)=>`<div class="info-unit"><b>${String(i+1).padStart(2,'0')} · ${ESC(s[0])} <span style="font-weight:500;color:#789">${ESC(s[1])}</span></b><p>${i===0?'Kiến thức nền và tính toán một bước':i===1?'Bayes, ML pipeline, CNN, RL và ứng dụng':i===2?'Tính toán nhiều bước, tối ưu hóa, nguyên nhân và rủi ro':i===3?'Lập luận Olympic, mô hình xác suất và ra quyết định':'Một phần đọc code, chọn snippet đúng và sắp xếp pipeline'}</p></div>`).join('')}</div><div class="caution">Chấm theo đáp án <strong>khớp hoàn toàn</strong>: câu chọn nhiều phải chọn đủ và không chọn thừa. Hệ thống tự động lưu điểm và bảng xếp hạng vào database SQLite.</div></div>${state.showSources?showSources():''}</div>`;
+    <section class="hero">
+      <div class="eyebrow">AIVIA / OPEN PRACTICE SERIES / MOCK 08</div>
+      <h1>Đề thi thử AI tổng hợp<br>từ nền tảng đến Olympic</h1>
+      <p>Mô phỏng <strong>vòng sơ loại trắc nghiệm VOAI</strong>, thiết kế bài đa dạng theo nguồn ôn tập Việt Nam và các kỳ tuyển chọn quốc gia. <strong>Code chỉ chiếm 15 câu</strong>; còn lại tập trung học máy, toán/logic, đạo đức và tình huống AI thực tế.</p>
+      <div class="chips">
+        <span class="chip">100 câu</span>
+        <span class="chip">50 câu chọn một</span>
+        <span class="chip">50 câu chọn nhiều</span>
+        <span class="chip">180 phút</span>
+        <span class="chip">Toàn màn hình tự động</span>
+        <span class="chip">Live Ranking kiểu Azota</span>
+      </div>
+      <div class="hero-bottom">
+        <button class="btn primary" data-act="start" style="padding:14px 24px;font-size:16px;font-weight:800">🚀 Bắt đầu làm bài (Tự động toàn màn hình) →</button>
+        <small>⚠️ <strong>Quy chế thi:</strong> Khi bắt đầu, hệ thống sẽ mở toàn màn hình. Nếu cố tình thoát hoặc chuyển tab quá <strong>3 lần</strong>, bài thi sẽ <strong>tự động nộp ngay lập tức</strong>.</small>
+      </div>
+    </section>
+
+    <div class="overview">
+      <div class="tile"><b>85</b><span>Câu kiến thức, tính toán, suy luận & thực tế</span></div>
+      <div class="tile"><b>15</b><span>Câu Python, NumPy, PyTorch & debugging</span></div>
+      <div class="tile"><b>4</b><span>Mức độ tăng dần</span></div>
+      <div class="tile"><b>3 lần</b><span>Giới hạn thoát màn hình tối đa</span></div>
+    </div>
+
+    <div class="section-card">
+      <h2>Lộ trình của bộ đề</h2>
+      <div class="list-info">
+        ${STAGES.map((s,i)=>`<div class="info-unit"><b>${String(i+1).padStart(2,'0')} · ${ESC(s[0])} <span style="font-weight:500;color:#789">${ESC(s[1])}</span></b><p>${i===0?'Kiến thức nền và tính toán một bước':i===1?'Bayes, ML pipeline, CNN, RL và ứng dụng':i===2?'Tính toán nhiều bước, tối ưu hóa, nguyên nhân và rủi ro':i===3?'Lập luận Olympic, mô hình xác suất và ra quyết định':'Một phần đọc code, chọn snippet đúng và sắp xếp pipeline'}</p></div>`).join('')}
+      </div>
+      <div class="caution">
+        Chấm theo đáp án <strong>khớp hoàn toàn</strong>: câu chọn nhiều phải chọn đủ và không chọn thừa. Hệ thống tự động ghi nhận điểm và cập nhật <strong>Bảng xếp hạng trực tiếp (Live Ranking)</strong>.
+      </div>
+    </div>
+    ${state.showSources?showSources():''}
+  </div>`;
+
+  // Gắn event listener lưu trực tiếp khi thí sinh gõ họ tên
+  const inName=document.getElementById('introName');
+  const inClass=document.getElementById('introClass');
+  const inSchool=document.getElementById('introSchool');
+  [inName, inClass, inSchool].forEach(el=>{
+    if(el){
+      el.addEventListener('input',()=>{
+        candidate.name=inName ? inName.value.trim() : candidate.name;
+        candidate.class_name=inClass ? inClass.value.trim() : candidate.class_name;
+        candidate.school=inSchool ? inSchool.value.trim() : candidate.school;
+        try{localStorage.setItem(CANDIDATE_KEY, JSON.stringify(candidate));}catch(e){}
+        renderCandidateHeader();
+      });
+    }
+  });
+
   summaryStats();
 }
 
@@ -846,11 +1023,57 @@ function resultView(){
   });
   let remaining=BANK.filter(q=>state.reviewFilter==='wrong'?!correct(q):state.reviewFilter==='flag'?flagged(q):true).map(x=>x.id);
 
-  const syncBox = currentUser && state.attemptId
-    ? `<div class="db-sync-badge">✓ Điểm đã được lưu vào Database SQLite & xếp hạng${state.serverRank ? ` (Hạng #${state.serverRank})` : ''}</div>`
-    : `<div style="background:#f4f6fa;padding:10px 14px;border-radius:10px;font-size:12px;color:#607590;margin-top:10px">💡 Bạn làm bài ở chế độ Khách. Đăng nhập để tự động lưu điểm vào database cho các lần thi sau.</div>`;
+  const displayCand=candidate.name ? `${candidate.name}${candidate.class_name ? ` (${candidate.class_name})` : ''}` : 'Thí sinh tự do';
+  const rankText = state.serverRank
+    ? `Thí sinh: <strong>${ESC(displayCand)}</strong> · Xếp hạng: <strong style="color:#fde047">#${state.serverRank}</strong> / ${state.totalParticipants || '-'} thí sinh (Đã lưu vào SQLite)`
+    : `Thí sinh: <strong>${ESC(displayCand)}</strong> · Điểm đã chấm cục bộ. Kết nối server/app.py để lưu Live Ranking.`;
 
-  return `<div class="result-hero"><div><span class="eyebrow">KẾT QUẢ BÀI THI · AIVIA MOCK 08</span><h1>${finalScore>=85?'Rất tốt!':finalScore>=65?'Kết quả khá tốt':finalScore>=45?'Đã có nền tảng':'Tiếp tục luyện tập'}</h1><p>${100-finalScore} câu chưa chính xác hoặc bỏ trống · Chấm theo đáp án khớp hoàn toàn.</p>${syncBox}</div><div class="scorebig">${finalScore}<small>/100</small></div></div><h3>Điểm theo chuyên đề</h3><div class="result-grid">${cats.map(x=>`<div class="metric-card"><div class="mname">${ESC(x.name)}</div><div class="mline">${x.pass}/${x.total}<small>${Math.round(x.pass/x.total*100)}%</small></div><div class="bar"><div style="width:${Math.round(x.pass/x.total*100)}%"></div></div></div>`).join('')}</div><h3>Điểm theo độ khó</h3><div class="result-grid">${st.map(x=>`<div class="metric-card"><div class="mname">${ESC(x.name)}</div><div class="mline">${x.pass}/${x.total}<small>${Math.round(x.pass/x.total*100)}%</small></div><div class="bar"><div style="width:${Math.round(x.pass/x.total*100)}%"></div></div></div>`).join('')}</div><div class="result-tools"><button class="btn primary" data-act="jump" data-id="1">Xem lời giải từng câu →</button><button class="btn" data-act="leaderboard">🏆 Bảng xếp hạng</button><button class="btn" data-act="history">📋 Lịch sử thi</button><label style="font-size:12px;color:#637b95;font-weight:750">Lọc danh sách ôn lại <select id="reviewFilter"><option value="all" ${state.reviewFilter==='all'?'selected':''}>Toàn bộ 100 câu</option><option value="wrong" ${state.reviewFilter==='wrong'?'selected':''}>Sai hoặc bỏ trống</option><option value="flag" ${state.reviewFilter==='flag'?'selected':''}>Đã đánh dấu</option></select></label><button class="btn" data-act="print">In kết quả</button><button class="btn danger" data-act="reset">Làm lại từ đầu</button></div><div class="result-summary">${remaining.length} câu theo bộ lọc hiện tại. Chọn số để mở câu hỏi, đáp án và lời giải chi tiết.</div><div class="palette" style="grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:7px">${remaining.map(id=>{const q=BANK[id-1];return `<button class="number ${correct(q)?'good':(answered(q)?'bad':'')} ${flagged(q)?'flag':''}" style="height:43px" data-act="jump" data-id="${id}">${id}</button>`;}).join('')}</div>${state.showSources?showSources():''}`;
+  return `<div class="result-hero">
+    <div>
+      <span class="eyebrow">KẾT QUẢ BÀI THI · AIVIA MOCK 08</span>
+      <h1>${finalScore>=85?'Rất xuất sắc!':finalScore>=65?'Kết quả khá tốt':finalScore>=45?'Đã có nền tảng':'Tiếp tục luyện tập'}</h1>
+      <p>${100-finalScore} câu chưa chính xác hoặc bỏ trống · Chấm theo đáp án khớp hoàn toàn.</p>
+      <div class="live-rank-banner">
+        <div class="lrb-left">
+          <span class="lrb-tag">🏆 LIVE RANKING</span>
+          <span>${rankText}</span>
+        </div>
+        <button class="btn small" style="background:#fff;color:#0d3f66;font-weight:800" data-act="leaderboard">Mở Bảng xếp hạng →</button>
+      </div>
+    </div>
+    <div class="scorebig">${finalScore}<small>/100</small></div>
+  </div>
+
+  <h3>Điểm theo chuyên đề</h3>
+  <div class="result-grid">
+    ${cats.map(x=>`<div class="metric-card"><div class="mname">${ESC(x.name)}</div><div class="mline">${x.pass}/${x.total}<small>${Math.round(x.pass/x.total*100)}%</small></div><div class="bar"><div style="width:${Math.round(x.pass/x.total*100)}%"></div></div></div>`).join('')}
+  </div>
+
+  <h3>Điểm theo độ khó</h3>
+  <div class="result-grid">
+    ${st.map(x=>`<div class="metric-card"><div class="mname">${ESC(x.name)}</div><div class="mline">${x.pass}/${x.total}<small>${Math.round(x.pass/x.total*100)}%</small></div><div class="bar"><div style="width:${Math.round(x.pass/x.total*100)}%"></div></div></div>`).join('')}
+  </div>
+
+  <div class="result-tools">
+    <button class="btn primary" data-act="jump" data-id="1">Xem lời giải từng câu →</button>
+    <button class="btn" data-act="leaderboard">🏆 Bảng xếp hạng trực tiếp</button>
+    <button class="btn" data-act="history">📋 Lịch sử các lần thi</button>
+    <label style="font-size:12px;color:#637b95;font-weight:750">Lọc ôn lại: 
+      <select id="reviewFilter">
+        <option value="all" ${state.reviewFilter==='all'?'selected':''}>Toàn bộ 100 câu</option>
+        <option value="wrong" ${state.reviewFilter==='wrong'?'selected':''}>Sai hoặc bỏ trống</option>
+        <option value="flag" ${state.reviewFilter==='flag'?'selected':''}>Đã đánh dấu</option>
+      </select>
+    </label>
+    <button class="btn" data-act="print">In kết quả</button>
+    <button class="btn danger" data-act="reset">Làm lại từ đầu</button>
+  </div>
+
+  <div class="result-summary">${remaining.length} câu theo bộ lọc hiện tại. Chọn số để mở câu hỏi, đáp án và lời giải chi tiết.</div>
+  <div class="palette" style="grid-template-columns:repeat(auto-fill,minmax(42px,1fr));gap:7px">
+    ${remaining.map(id=>{const q=BANK[id-1];return `<button class="number ${correct(q)?'good':(answered(q)?'bad':'')} ${flagged(q)?'flag':''}" style="height:43px" data-act="jump" data-id="${id}">${id}</button>`;}).join('')}
+  </div>
+  ${state.showSources?showSources():''}`;
 }
 
 function render(){
@@ -897,8 +1120,7 @@ function action(e){
       save();
       render();
     }
-    else if(a==='openAuth')openModal('authModal');
-    else if(a==='logout')handleLogout();
+    else if(a==='openCandidateModal')openCandidateModal();
     else if(a==='leaderboard')showLeaderboard();
     else if(a==='history')showHistory();
   }
@@ -907,15 +1129,11 @@ function action(e){
   if(closeBtn){
     closeModal(closeBtn.dataset.close);
   }
-
-  const authTab=e.target.closest('[data-auth-mode]');
-  if(authTab){
-    setAuthMode(authTab.dataset.authMode);
-  }
 }
 
 document.addEventListener('click',action);
-document.getElementById('authForm').addEventListener('submit', handleAuthSubmit);
+document.getElementById('candidateForm').addEventListener('submit', saveCandidateFromModal);
+document.getElementById('btnRefreshLeaderboard').addEventListener('click',()=>showLeaderboard(false));
 
 document.addEventListener('change',e=>{
   if(e.target.id==='topicFilter'){
@@ -960,8 +1178,8 @@ setInterval(()=>{
   if(n<=0) submit(true, 'timeout');
 },1000);
 
-// Khởi chạy auth và ứng dụng
-initAuth();
+// Khởi chạy
+renderCandidateHeader();
 if(state.started&&!state.finished&&secsLeft()<=0) submit(true, 'timeout');
 else render();
 </script>

@@ -1,5 +1,4 @@
 {
   "host": "0.0.0.0",
-  "port": 8000,
-  "google_client_id": ""
+  "port": 8000
 }
