@@ -3,13 +3,15 @@
 Đề luyện tập **100 câu trắc nghiệm** mô phỏng vòng sơ loại Olympic AI (Foundation → Olympic),
 kèm **database SQLite** để quản lý ngân hàng câu hỏi.
 
+**Làm bài online:** https://nhwbachtik25.github.io/aivia-mock-exam/
+
 > Tài liệu tự biên soạn phục vụ luyện tập. Không phải đề chính thức của VOAI/IOAI.
 
 ## Cấu trúc thư mục
 
 ```
 .
-├── AIVIA_Mock_08_VOAI_Realistic_100_Cau_Foundation_to_Olympic.html   # Đề thi (mở trực tiếp bằng trình duyệt)
+├── index.html                  # Đề thi (mở trực tiếp bằng trình duyệt / GitHub Pages)
 ├── database/
 │   ├── schema.sql              # Lược đồ SQLite
 │   ├── questions.db            # Database SQLite (100 câu, 13 nguồn)

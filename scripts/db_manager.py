@@ -27,7 +27,7 @@ ROOT = Path(__file__).resolve().parent.parent
 DB_PATH = ROOT / "database" / "questions.db"
 SCHEMA_PATH = ROOT / "database" / "schema.sql"
 JSON_PATH = ROOT / "database" / "questions.json"
-HTML_PATH = ROOT / "AIVIA_Mock_08_VOAI_Realistic_100_Cau_Foundation_to_Olympic.html"
+HTML_PATH = ROOT / "index.html"
 
 DB_PREFIX = "const DB="
 LABELS = "ABCDEFGHIJ"
