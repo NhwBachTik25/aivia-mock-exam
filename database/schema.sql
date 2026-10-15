@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS sources (
     code   TEXT PRIMARY KEY,          -- ví dụ: 'VOAI'
     title  TEXT NOT NULL,
     url    TEXT
-);3
+);
 
 -- Câu hỏi
 CREATE TABLE IF NOT EXISTS questions (
